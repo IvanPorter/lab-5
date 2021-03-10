@@ -36,13 +36,13 @@ public class JournalJdbc {
                 "values " +
                 "('" + student_id + "','" + study_plan_id + "','" + in_time + "','" + count + "','" + mark_id + "')";
         jdbcTemplate.execute(add_request);
-        return "Запись в журнал успешно добавлена";
+        return "Запись в таблицу журнал добавлена";
     }
 
     public String delete(Integer id) {
         String delete_request = "delete from JOURNAL where id = " + id;
         jdbcTemplate.execute(delete_request);
-        return "Запись журнала с id = " + id + " успешно удалена";
+        return "Запись таблицы журнал с id = " + id + " удалена";
     }
 
     public String update(int id, int student_id, int study_plan_id, boolean in_time, int count, int mark_id) {
@@ -50,13 +50,13 @@ public class JournalJdbc {
                 "update journal set student_id = ?, study_plan_id = ?, in_time = ?, count = ?, mark_id = ? " +
                         "where id = ?";
         jdbcTemplate.update(update_request, student_id, study_plan_id, in_time, count, mark_id, id);
-        return "Запись в журнале с id = " + id + " успешно обновлена";
+        return "Запись в таблице журнал с id = " + id + " обновлена";
     }
 
     public String updateMark(int id, int mark_id) {
         String update_request = "update journal set mark_id = ? where id = ?";
         jdbcTemplate.update(update_request, mark_id, id);
-        return "Оценка записи в журнале с id = " + id + " успешно обновлена";
+        return "Оценка записи с id = " + id + " обновлена";
     }
 
     public List<Journal> getByStudent(int student_id) {

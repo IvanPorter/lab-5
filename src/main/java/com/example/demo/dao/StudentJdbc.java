@@ -46,18 +46,18 @@ public class StudentJdbc {
         String insert_request = "insert into student (surname, name, second_name, study_group_id) " +
                 "values ('" + surname + "','" + name + "','" + second_name + "','" + study_group_id + "')";
         jdbcTemplate.execute(insert_request);
-        return "В базу данных успешно добавлен новый студент " + surname + " " + name + " " + second_name;
+        return "Добавлен студент " + surname + " " + name + " " + second_name;
     }
 
     public String update(int id, String surname, String name, String second_name, int study_group_id) {
         String update_request = "update STUDENT set SURNAME = ?, NAME = ?, SECOND_NAME = ?, STUDY_GROUP_ID = ? where ID = ?";
         jdbcTemplate.update(update_request, surname, name, second_name, study_group_id, id);
-        return "Информация о студенте с id = " + id + " успешно обновлена";
+        return "Данные студента id = " + id + " обновлены";
     }
 
     public String delete(int id) {
         String delete_request = "delete from STUDENT where ID = " + id;
         jdbcTemplate.execute(delete_request);
-        return "Студент с id = " + id + " удален успешно";
+        return "Студент с id = " + id + " удален ";
     }
 }

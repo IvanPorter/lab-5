@@ -43,18 +43,18 @@ public class StudyGroupJdbc {
     public String add(String name) {
         String insert_request = "insert into STUDY_GROUP (name) values ('" + name + "')";
         jdbcTemplate.execute(insert_request);
-        return "В базу данных успешно добавлена новая группа " + name;
+        return "В базу данных добавлена новая группа " + name;
     }
 
     public String update(int id, String name) {
         String update_request = "update STUDY_GROUP set NAME = ? where ID = ?";
         jdbcTemplate.update(update_request, name, id);
-        return "Информация о группе с id = " + id + " успешно обновлена";
+        return "Информация о группе с id = " + id + " обновлена";
     }
 
     public String delete(int id) {
         String delete_request = "delete from STUDY_GROUP where ID = " + id;
         jdbcTemplate.execute(delete_request);
-        return "Группа с id = " + id + " удалена успешно";
+        return "Группа с id = " + id + " удалена";
     }
 }
